@@ -18,7 +18,7 @@ Or you can install Python packages running this pip command in the terminal:
 ```
 pip install -r requirements.txt
 ```
-## Usage
+## 2. Usage
 
 ### Running the Python script
 
@@ -35,7 +35,7 @@ After successful execution, the following files will be saved in your current di
 
 You will receive confirmation messages once the summaries are generated and saved.
 
-## Dependencies
+## 3. Dependencies
 
 - **Pymupdf and fitz:** For reading PDF files and extracting text.
 - **Langchain:** For utilizing PromptTemplate to use with OpenAI's GPT-4o-mini model
@@ -45,7 +45,7 @@ You will receive confirmation messages once the summaries are generated and save
 
 
 
-## Error Handling during Script Execution
+## 4. Error Handling during Script Execution
 
 Solutions for possible errors one can encounter during script execution:
 
@@ -53,15 +53,16 @@ Solutions for possible errors one can encounter during script execution:
 - **PDF Parsing Error:** Some PDFs may not be compatible with PyMuPDF (fitz). Verify PDF compatibility or try other PDF libraries.
 - **OpenAI API Errors:** Ensure your API key is correct and active. Check internet connectivity and API rate limits.
 
-## Customization
+## 5. Customization
 
 - Modify `chunks_prompt`, `final_combine_prompt`, and `final_combine_prompt_1_pager` templates to adjust the content and style of generated summaries.
 
-## Contribution
-- Khushi Srivastava
-- Palak Bhatia
-- Manav Chauhan
-- Apurv Bhargav
-- Kake Bharath Kumar Reddy 
----
+## 6. Future Enhancements
+- Additional Output Formats: Support for Excel or PowerPoint summaries.
+- Batch Processing: Automate the summarization of PDFs in a folder without manual file path entry.
+- GUI Integration: Add a user-friendly interface for non-technical users.
+- Expanded Language Support: Extend functionality to include multilingual summarization for global financial reports.
+- Advanced Customization: Provide a configuration file to adjust prompts, summary length, and output formatting.
 
+## 7. License
+This project is licensed under the MIT License. Feel free to use and modify the code for personal or commercial purposes.
