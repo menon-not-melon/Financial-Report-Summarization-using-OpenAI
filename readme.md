@@ -58,11 +58,11 @@ Solutions for possible errors one can encounter during script execution:
 - Modify `chunks_prompt`, `final_combine_prompt`, and `final_combine_prompt_1_pager` templates to adjust the content and style of generated summaries.
 
 ## 6. Future Enhancements
-- Additional Output Formats: Support for Excel or PowerPoint summaries.
-- Batch Processing: Automate the summarization of PDFs in a folder without manual file path entry.
-- GUI Integration: Add a user-friendly interface for non-technical users.
-- Expanded Language Support: Extend functionality to include multilingual summarization for global financial reports.
-- Advanced Customization: Provide a configuration file to adjust prompts, summary length, and output formatting.
+- **Additional Output Formats:** Support for Excel or PowerPoint summaries.
+- **Batch Processing:** Automate the summarization of PDFs in a folder without manual file path entry.
+- **GUI Integration:** Add a user-friendly interface for non-technical users.
+- **Expanded Language Support:** Extend functionality to include multilingual summarization for global financial reports.
+- **Advanced Customization:** Provide a configuration file to adjust prompts, summary length, and output formatting.
 
 ## 7. License
 This project is licensed under the MIT License. Feel free to use and modify the code for personal or commercial purposes.
