@@ -14,11 +14,10 @@ To run the Python script, ensure you have the following packages installed:
 - OpenAI
 - Docx
 
-You can install Python packages using pip:
-
-pip install pymupdf langchain langchain_community tiktoken openai python-docx
-
-
+Or you can install Python packages running this pip command in the terminal:
+```
+pip install -r requirements.txt
+```
 ## Usage
 
 ### Running the Python script
