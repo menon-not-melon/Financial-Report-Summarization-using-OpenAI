@@ -27,3 +27,34 @@ Document:`{text}'
 Summary:
 """
 custom_prompt = PromptTemplate(template=chunks_prompt,input_variables=["text"])
+
+# Defining prompt for creating a 2 page-summary with all our objectives
+final_combine_prompt="""
+Create a concise summary of the financial position of the company based on the provided speech. The summary should be strictly 2 pages long, covering the following key points and information about the mentioned points only and should be under the heading:
+
+Business Overview:
+
+Formation and Incorporation date, headquarters location, business description, employee count, latest revenues, stock exchange listing and market capitalization, number of offices, and key clients/customers.
+The business overview should be in a paragraph and not in bullet points containing all the above points.
+Business Segment Overview:
+
+Extract the revenue percentage of each component (verticals, products, segments, sections) as part of total revenue in bullet points.
+Evaluate performance of each component by comparing current year's sales/revenue and market share with previous year's numbers.
+Explain reasons for any increase or decrease in performance in brief.
+Geographical Sales Breakdown:
+
+Summarize sales and revenue breakdown by geography, specifying percentage contribution of each region to total sales in bullet points.
+Provide insights into workforce, client distribution, office locations, and outline regional expansion or reduction plans briefly.
+Year-over-Year Sales Analysis:
+
+Analyze year-over-year sales fluctuations and provide reasons for changes.
+Rationale & Considerations:
+
+Include SWOT analysis (Strengths, Weaknesses, Opportunities, Threats) where each of the components are under subheadings.
+Discuss key considerations, risks, and mitigating factors impacting the company's financial outlook.
+Credit Rating and Outlook:
+
+Provide information about current credit rating, any changes, and outlook briefly.
+
+"""
+final_summary_prompt=PromptTemplate(template=final_combine_prompt,input_variables=['text'])
