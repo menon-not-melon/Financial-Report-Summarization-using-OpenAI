@@ -65,3 +65,7 @@ final_combine_prompt_1_pager = f"""
 The entire summary should not exceed 320 words.
 """
 final_summary_prompt_one_pager = PromptTemplate(template=final_combine_prompt_1_pager,input_variables=['text'])
+
+# Initializing OpenAI client and input of open ai key
+key = str(input("Enter your Open AI API key: "))
+openai.api_key=key
