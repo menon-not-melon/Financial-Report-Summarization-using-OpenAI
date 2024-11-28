@@ -90,3 +90,31 @@ def extract_text_from_pdf(file_paths):
         except Exception as e:
             print(f"Error extracting text from {file_path}: {e}")
     return text
+
+# Function to preprocess text
+def preprocess_text(text):
+    try:
+        # Tokenizing the text into words
+        tokens = word_tokenize(text)
+        # Converting each word into lower-case
+        tokens = [word.lower() for word in tokens]
+        # Removing punctuation 
+        table = str.maketrans('', '', string.punctuation)
+        stripped = [word.translate(table) for word in tokens]
+
+        # Stopwords removal
+        stop_words = set(stopwords.words('english'))
+        words = [word for word in stripped if word not in stop_words]
+        # Joining the words into a single string
+        processed_text = ' '.join(words)
+
+        # Counting the number of tokens after processing using tiktoken
+        encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")
+        num_tokens = len(encoding.encode(processed_text))
+
+        return processed_text, num_tokens
+
+    # Handling exceptions that might occur during text preprocessing
+    except Exception as e:
+        print(f"Error in text preprocessing: {e}")
+        return "", 0
