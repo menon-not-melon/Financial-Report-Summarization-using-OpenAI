@@ -64,8 +64,29 @@ final_combine_prompt_1_pager = f"""
 1-page summary should be summary of the given text including the numbers from Business segment overview & geographical segment overview with all the important points in just 1 page. The businesss overview should not be more than 4 lines.
 The entire summary should not exceed 320 words.
 """
-final_summary_prompt_one_pager = PromptTemplate(template=final_combine_prompt_1_pager,input_variables=['text'])
+final_summary_prompt_one_pager = PromptTemplate(template=final_combine_prompt_1_pager,input_variables = ['text'])
 
 # Initializing OpenAI client and input of open ai key
 key = str(input("Enter your Open AI API key: "))
-openai.api_key=key
+openai.api_key = key
+
+# Function to extract text from PDF files
+def extract_text_from_pdf(file_paths):
+    text = "" # Initializing an empty string to store the extracted text
+    for file_path in file_paths: # Iterating through each file path
+        try:
+            with fitz.open(file_path) as pdf_document:
+                # Iterate through each page in the PDF document
+                for page_num in range(len(pdf_document)):
+                    # Get a page object
+                    page = pdf_document.load_page(page_num)
+                    
+                    # Extract text from the page
+                    page_text = page.get_text()
+                    
+                    # Append extracted text to the 'text' variable
+                    text += page_text or "" or "" # Appending the text string if found
+        # Handling Exceptions that might occur during PDF processing
+        except Exception as e:
+            print(f"Error extracting text from {file_path}: {e}")
+    return text
