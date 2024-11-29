@@ -118,3 +118,20 @@ def preprocess_text(text):
     except Exception as e:
         print(f"Error in text preprocessing: {e}")
         return "", 0
+
+# Function to split text into chunks
+def split_text(text, chunk_size=20000, chunk_overlap=20):
+    try:
+        text_length = len(text) # Calculating the length of the entire text
+        chunks = [] 
+        start = 0
+        # Iterating till the entire text is processed
+        while start < text_length:
+            end = start + chunk_size # Calculating the end index of the chunk
+            chunks.append(text[start:end]) # Appending the chunk to the chunk list
+            start += chunk_size - chunk_overlap # Calculating the beginning index of the next chunk
+        return chunks
+    # Handling exceptions that might happen while creating the chunks
+    except Exception as e:
+        print(f"Error splitting text into chunks: {e}")
+        return []
