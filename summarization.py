@@ -153,3 +153,11 @@ def generate_summary(text,prompt):
     except Exception as e:
         print(f"Error generating summary: {e}")
         return ""
+
+# Function to format the summary
+def format_summary(input):
+    # To remove #
+    cleaned_input = input.replace('#','')
+    # TO remove *
+    cleaned_input = cleaned_input.replace('*','')
+    return cleaned_input
