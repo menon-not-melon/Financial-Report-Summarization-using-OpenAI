@@ -135,3 +135,21 @@ def split_text(text, chunk_size=20000, chunk_overlap=20):
     except Exception as e:
         print(f"Error splitting text into chunks: {e}")
         return []
+
+# Function to generate a summary using OpenAI API
+def generate_summary(text,prompt):
+    try:
+        MODEL = "gpt-4o-mini" # Specifying the model we want to use
+        # Calling OpenAI API key for generating the summary by specifying the role message, text and prompt
+        response = openai.chat.completions.create(
+            model = MODEL,
+            messages = [
+                {"role": "system", "content": "You are a helpful and expert financial advisor"},
+                {"role": "user", "content": text},
+                {"role": "user", "content": prompt},
+            ])
+        return response.choices[0].message.content
+    # Handling exceptions that might occur while generating the summary
+    except Exception as e:
+        print(f"Error generating summary: {e}")
+        return ""
