@@ -174,3 +174,24 @@ def write_to_docx(text, filename):
     # Handling exceptions that might come while writing into the .docx file    
     except Exception as e:
         print(f"Error writing to DOCX file: {e}")
+
+if __name__ == "__main__":
+    try:
+        # Here we are taking multiple pdf files as input which are separated using ','
+        # eg "Apple 10K.pdf","Apple 10Q.pdf","Apple_Deutsche_Jun23.pdf"
+        input_paths =input("Enter the file paths")  
+        # Splitting the input_paths string by ',' to create a list of file paths
+        pdf_file_paths=[path.strip() for path in input_paths.split(',')]
+
+        # Handling the exception if no file is provided as the input
+        if not pdf_file_paths:
+            raise ValueError("Please provide at least one PDF file path.")
+        
+        # Extracting text from PDFs
+        text = extract_text_from_pdf(pdf_file_paths)
+        
+        # Preprocessing text and here num_tokens is the total input tokens
+        text, num_tokens = preprocess_text(text)
+            
+        # Splitting text into chunks
+        text_chunks = split_text(text)
