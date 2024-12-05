@@ -161,3 +161,16 @@ def format_summary(input):
     # TO remove *
     cleaned_input = cleaned_input.replace('*','')
     return cleaned_input
+
+# Function to write text to a Word document
+def write_to_docx(text, filename):
+    try:
+        # Creating a Document object
+        doc = Document() 
+        # Adding text to the document
+        doc.add_paragraph(text)
+        # Saving the document with the filename provided
+        doc.save(filename)
+    # Handling exceptions that might come while writing into the .docx file    
+    except Exception as e:
+        print(f"Error writing to DOCX file: {e}")
