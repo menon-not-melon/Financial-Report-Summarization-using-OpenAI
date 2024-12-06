@@ -210,3 +210,17 @@ if __name__ == "__main__":
         
         # Generating 1-page summary        
         final_summary_one_page = generate_summary(final_summary,final_combine_prompt_1_pager)
+
+        # Writing summaries to DOCX files
+        if final_summary:
+            final_summary=format_summary(final_summary)
+            write_to_docx(final_summary, "final_summary_two_page.docx")
+            print("2 page summary generated and saved successfully.")
+        if final_summary_one_page:
+            final_summary_one_page=format_summary(final_summary_one_page)
+            write_to_docx(final_summary_one_page, "final_summary_one_page.docx")
+            print("1 page summary generated and saved successfully.")
+        
+
+    except Exception as e:
+        print(f"An error occurred: {e}")
