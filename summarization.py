@@ -195,3 +195,18 @@ if __name__ == "__main__":
             
         # Splitting text into chunks
         text_chunks = split_text(text)
+
+        # Generating summaries for text chunks
+        chunk_summaries = []
+        for chunk in text_chunks:
+            chunk_summary = generate_summary(chunk,chunks_prompt)
+            chunk_summaries.append(chunk_summary)
+        
+        # Combining chunk summaries into one text
+        combined_summary_text = " ".join(chunk_summaries)
+        
+        # Generate final summary
+        final_summary = generate_summary(combined_summary_text,final_combine_prompt)
+        
+        # Generating 1-page summary        
+        final_summary_one_page = generate_summary(final_summary,final_combine_prompt_1_pager)
